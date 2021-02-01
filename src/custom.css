@@ -12,10 +12,11 @@ html, body {
 	height: 100%;
 	color: 868e96;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 2em;
 }
 
-.hero {
+/*todo: use this pallet https://coolors.co/ffeaee-ec4e20-0075f2-00f2f2-1c2826  */
+
+.hero--disabled {
 	text-align: center;
 	/* no use of padding until i cant get rid of the h1 margin */
 	/* OK I THINK IT COULD BE BECAUSE OF THE INDEX.CSS AKA NORMALIZE.CSS */
@@ -31,7 +32,7 @@ html, body {
 	/* border: 3px dotted honeydew; */
 }
 
-h1 {
+h1.disabled {
 	color: white;
 	text-decoration: underline wavy coral;
 }

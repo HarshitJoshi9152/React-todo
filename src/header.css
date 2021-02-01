@@ -1,0 +1,16 @@
+header {
+	padding: 15px;
+	text-align: center;
+}
+
+h1 {
+	margin:none;
+	padding:none;
+	font-size: 2.8em;
+	font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+	background: rgb(131,58,180);
+	background-image: linear-gradient(225deg, rgba(82,78,227,1) 2%, rgba(131,58,180,1) 18%, rgba(252,69,69,1) 53%, rgba(232,252,69,1) 96%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+}

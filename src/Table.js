@@ -1,15 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
-class Table extends Component{
-	render () {
-		const {characterData, removeCharacters} = this.props;
+class Table extends Component {
+	render() {
+		const { characterData, removeCharacters } = this.props;
 
 		return (
 			<table>
-				<TableHead/>
-				<TableBody characterData={characterData} removeCharacters={removeCharacters} />
+				<TableHead />
+				<TableBody
+					characterData={characterData}
+					removeCharacters={removeCharacters}
+				/>
 			</table>
-		)
+		);
 	}
 }
 
@@ -26,19 +29,23 @@ function TableHead() {
 }
 
 function TableBody(props) {
-	const rows = props.characterData.map( (row, index) => {
+	const rows = props.characterData.map((row, index) => {
 		return (
 			<tr key={index}>
-				<td> {row.name} </td>
-				<td> {row.job} </td>
+				{
+					row.items.map( itm => <td> {itm} </td> )
+				}
+				{/* <td> {row.name} </td>
+				<td> {row.job} </td> */}
 				<td>
-					<button onClick={ () => props.removeCharacters(index)}>Delete</button>
+					<button onClick={() => props.removeCharacters(index)}>
+						Delete
+					</button>
 				</td>
 			</tr>
-		)
+		);
 	});
-	return <tbody> { rows } </tbody>;
+	return <tbody> {rows} </tbody>;
 }
-
 
 export default Table;
