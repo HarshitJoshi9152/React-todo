@@ -2,22 +2,18 @@ import React, { Component } from "react";
 
 class Form extends Component {
 	initialState = {
-		items:["", ""]
+		name: "",
+		job: ""
 	};
 
 	state = this.initialState;
 
-	componentDidMount = () => {
-		console.log(this.state)
-	}
-
 	handleChange = (event) => {
 		const { name, value } = event.target;
+
 		this.setState({
-			items: [name, value]
+			[name]: value
 		});
-		console.log("debugging\n", this.state);
-		console.log("debugging\n", { name, value });
 	};
 
 	submitForm = () => {
@@ -26,8 +22,8 @@ class Form extends Component {
 	};
 
 	render() {
-		const [ name, job ] = this.state.items.length ? this.state.items : ["",""];
-		console.log(name, job)
+		const { name, job } = this.state;
+
 		return (
 			<form>
 				<label htmlFor="name">Name</label>
@@ -46,7 +42,7 @@ class Form extends Component {
 					value={job}
 					onChange={this.handleChange}
 				/>
-				<input type="button" onClick={this.submitForm} value="Click me 👉👈"/>
+				<input type="button" onClick={this.submitForm} value="👉 Click me 👈"/>
 			</form>
 		);
 	}

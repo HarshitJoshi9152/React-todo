@@ -33,7 +33,7 @@ function TableBody(props) {
 		return (
 			<tr key={index}>
 				{
-					row.items.map( itm => <td> {itm} </td> )
+					Object.values(row).map( itm => <td> {itm} </td> )
 				}
 				{/* <td> {row.name} </td>
 				<td> {row.job} </td> */}
