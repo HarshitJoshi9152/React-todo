@@ -5,23 +5,35 @@ class Table extends Component {
 		const { characterData, removeCharacters } = this.props;
 
 		return (
-			<table>
-				<TableHead />
-				<TableBody
-					characterData={characterData}
-					removeCharacters={removeCharacters}
-				/>
-			</table>
+			<div className="content">
+				<Header/>
+				<table>
+					{/* not the best way to do this */}
+					<TableHead headings={Object.keys({name:"", job:""})}/>
+					<TableBody
+						characterData={characterData}
+						removeCharacters={removeCharacters}
+					/>
+				</table>
+			</div>
 		);
 	}
 }
 
-function TableHead() {
+function Header() {
+	return (
+		<h2>all tasks</h2>	
+	)
+}
+
+function TableHead(props) {
+	console.log(props)
 	return (
 		<thead>
 			<tr>
-				<th>Name</th>
-				<th>Job</th>
+				{/* {props.headings.map( (head) => <th>{head}</th>)} */}
+				<th>name</th>
+				<th>job</th>
 				<th>Remove</th>
 			</tr>
 		</thead>

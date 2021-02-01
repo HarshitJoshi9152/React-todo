@@ -1,0 +1,13 @@
+input, textarea {
+	color: white;
+}
+
+form {
+	text-align: center;
+	width:auto;
+	margin: 4px auto;
+}
+
+label {
+	text-align: left;
+}

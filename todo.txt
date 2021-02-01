@@ -1,0 +1,12 @@
+remove btn not on a specific space,
+its pos changes when content-length changes
+
+add routing for the notes to allow for bigger notes
+
+add keyboard shortcuts
+and also allow the user to define them and also remember them !
+
+
+IMPORTANT
+
+i have to find a way to style this thing !!

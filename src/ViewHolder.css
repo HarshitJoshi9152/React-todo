@@ -1,0 +1,37 @@
+.container {
+	display:flex;
+	padding:2vw;
+	background-color: #403947;
+}
+
+.content {
+	/* order: 1; */
+	border: 2px solid red;
+	float: right;
+	/* width: 60%;
+	display: block */
+	flex:1;
+	/* width: 400px;; */
+}
+
+.content > h2, .form > h2 {
+	padding: 20px;
+	margin: 20px;
+	text-decoration: underline solid tomato;
+	color: whitesmoke;
+	text-align: center;
+}
+
+.form {
+	/* width: 20%;
+	display: block */
+	/* order: 2; */
+	float: left;
+	border: 2px solid red;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}

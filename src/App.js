@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header"
 import Table from "./Table";
 import Form from "./Form";
+import ViewHolder from "./ViewHolder";
 class App extends Component {
 	state = {
 		characters: []
@@ -29,13 +30,14 @@ class App extends Component {
 		return (
 			<>
 				<Header />
-				<div>
+				<ViewHolder>
+					<Form handleSubmit={this.handleSubmit} />
 					<Table
 						characterData={characters}
 						removeCharacters={this.removeCharacters}
 					/>
-					<Form handleSubmit={this.handleSubmit} />
-				</div>
+					{/* <tasks data={tasks} removeTask={removeTask}></tasks> */}
+				</ViewHolder>
 			</>
 		);
 	}
