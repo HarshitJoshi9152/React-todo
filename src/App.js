@@ -5,27 +5,38 @@ import Form from "./Form";
 import ViewHolder from "./ViewHolder";
 class App extends Component {
 	state = {
-		characters: []
+		notes: [],
 	};
 
-	removeCharacters = (index) => {
-		const { characters } = this.state;
+	removenotes = (index) => {
+		const { notes } = this.state;
 
 		this.setState({
-			characters: characters.filter((character, i) => {
+			notes: notes.filter((character, i) => {
 				return i !== index;
 			})
 		});
 	};
 
-	handleSubmit = (newChar) => {
+	handleSubmit = (newNote) => {
 		this.setState({
-			characters: [...this.state.characters, newChar]
+			notes: [newNote, ...this.state.notes]
 		});
 	};
 
+	// this method should return matching notes
+	searchData = (q) => {
+		const matches = this.state.notes.filter( ({title, note}) => {
+			if (title.includes(q) || note.includes(q)) {
+				return true;
+			}
+			return false;
+		});
+		return matches;
+	}
+
 	render() {
-		const { characters } = this.state;
+		const { notes } = this.state;
 		
 		return (
 			<>
@@ -33,8 +44,9 @@ class App extends Component {
 				<ViewHolder>
 					<Form handleSubmit={this.handleSubmit} />
 					<Table
-						characterData={characters}
-						removeCharacters={this.removeCharacters}
+						notesData={notes}
+						removenotes={this.removenotes}
+						searchData={this.searchData}
 					/>
 					{/* <tasks data={tasks} removeTask={removeTask}></tasks> */}
 				</ViewHolder>

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import './form.css'
 class Form extends Component {
 	initialState = {
-		name: "",
-		job: ""
+		title: "",
+		note: ""
 	};
 
 	state = this.initialState;
@@ -16,13 +16,14 @@ class Form extends Component {
 		});
 	};
 
-	submitForm = () => {
+	submitForm = (e) => {
+		e.preventDefault()
 		this.props.handleSubmit(this.state);
 		this.setState(this.initialState);
 	};
 
 	render() {
-		const { name, job } = this.state;
+		const { title: name, note: job } = this.state;
 
 		return (
 			<div className="form">
@@ -32,7 +33,7 @@ class Form extends Component {
 				<input
 					placeholder="name"
 					type="text"
-					name="name"
+					name="title"
 					id="name"
 					value={name}
 					onChange={this.handleChange}
@@ -41,12 +42,12 @@ class Form extends Component {
 				<textarea
 					placeholder="job"
 					type="text"
-					name="job"
+					name="note"
 					id="job"
 					value={job}
 					onChange={this.handleChange}
 				/>
-				<input type="button" onClick={this.submitForm} value="Add task"/>
+				<input type="button" onSubmit={this.submitForm} onClick={this.submitForm} value="Add task"/>
 			</form>
 			</div>
 		);

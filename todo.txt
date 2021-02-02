@@ -6,7 +6,22 @@ add routing for the notes to allow for bigger notes
 add keyboard shortcuts
 and also allow the user to define them and also remember them !
 
+can see this for better split code 
+https://gist.github.com/jpnelson/52d6f38820c6d028bdf8
+
+also add theme switching 
+
+i could add:
+	pos: sticky on form
+	or scroll on the content
+
+try css grid instead of flex-box
+grid-template-columns
 
 IMPORTANT
 
 i have to find a way to style this thing !!
+
+unable to preventDefault on from submit
+
+required not working on form

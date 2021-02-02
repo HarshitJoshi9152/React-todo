@@ -1,0 +1,20 @@
+css
+
+basics + basic concepts like (you cant use this prop if you set position to this bla bla)
+positions
+layouts -- i need a lot of practice in making layouts 
+semantic (classes | styling) (guide | system) [i think i meant non-semantic (extra/necessary) here but now i dont think they do matter so...]
+floats and clears
+flexbox
+responsive without grid ?
+
+CSS GRID changes EVERYTHING
+https://www.youtube.com/watch?v=7kVeCqQCxlk
+
+done today
+1/2/2021
+
+react
+css
+todo list project work
+https://www.youtube.com/watch?v=7kVeCqQCxlk

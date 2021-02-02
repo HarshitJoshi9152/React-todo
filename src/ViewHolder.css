@@ -1,17 +1,33 @@
 .container {
-	display:flex;
+	display:grid;
+	grid-template-columns: 2fr 4fr;
 	padding:2vw;
 	background-color: #403947;
 }
 
+.form {
+	/* width: 20%;
+	display: block */
+	/* order: 2; */
+
+	/* width: 35%; */
+	margin-right:1.5em;
+	position: sticky;
+	/* border: 2px solid red; */
+}
+
 .content {
 	/* order: 1; */
-	border: 2px solid red;
-	float: right;
+	/* border: 2px solid red; */
+	/* float: right; */
+	/* width:65%; */
+	/* flex:1;flex grow equivalent */
+
 	/* width: 60%;
 	display: block */
-	flex:1;
 	/* width: 400px;; */
+	height: 450px;
+	overflow: scroll;
 }
 
 .content > h2, .form > h2 {
@@ -22,16 +38,14 @@
 	text-align: center;
 }
 
-.form {
-	/* width: 20%;
-	display: block */
-	/* order: 2; */
-	float: left;
-	border: 2px solid red;
+.table_des {
+	/* this is a challenging layout to implement responsively i guess i will come back to this some day*/
 }
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
+td
+{
+ max-width: 100px;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
 }

@@ -15,24 +15,3 @@ html, body {
 }
 
 /*todo: use this pallet https://coolors.co/ffeaee-ec4e20-0075f2-00f2f2-1c2826  */
-
-.hero--disabled {
-	text-align: center;
-	/* no use of padding until i cant get rid of the h1 margin */
-	/* OK I THINK IT COULD BE BECAUSE OF THE INDEX.CSS AKA NORMALIZE.CSS */
-	/* padding: 20px; */
-	/* USING FLEXBOX TAKES THE ENTIRE WIDTH */
-	display: flex;
-	justify-content: center;
-	/* USING MARGIN:AUTO AND WIDTH DOESNT TAKE FULL WIDTH */
-	/* margin: 0 auto;
-	width: 50%; */
-	/* WHY IS THE NEXT RULE NOT BEING USED ???? hmm this could also be coz of index.css */
-	font-size: 40px !important;
-	/* border: 3px dotted honeydew; */
-}
-
-h1.disabled {
-	color: white;
-	text-decoration: underline wavy coral;
-}
