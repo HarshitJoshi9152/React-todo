@@ -3,19 +3,19 @@ import Header from "./Header"
 import Table from "./Table";
 import Form from "./Form";
 import ViewHolder from "./ViewHolder";
+
 class App extends Component {
 	state = {
 		notes: [],
 	};
 
 	removenotes = (index) => {
-		const { notes } = this.state;
 
 		this.setState({
-			notes: notes.filter((character, i) => {
+			notes: this.state.notes.filter((_, i) => {
 				return i !== index;
 			})
-		});
+		})
 	};
 
 	handleSubmit = (newNote) => {

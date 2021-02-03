@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-
 class Table extends Component {
 
 	state = {
@@ -19,6 +17,7 @@ class Table extends Component {
 
 	render() {
 		const { notesData, removenotes, searchData} = this.props;
+		// console.log(removenotes)
 		const {searchedData, queryMode} = this.state;
 		const notes = (queryMode) ? searchedData : notesData;
 		return (
@@ -32,68 +31,15 @@ class Table extends Component {
 						removenotes={removenotes}
 					/>
 				</table> */}
-				<Notes notesData={notes}/>
+				<Notes notesData={notes} removenotes={removenotes}/>
 			</div>
 		);
 	}
 }
 
-// class SearcshBar extends React.Component{
-// 	search = (e) => {
-// 		const {setQueryMode, setSearchedData, queryMode, searchData} = this.props;
-// 		const value = e.target.value.trim();
-// 		if (value !== "") {
-// 			// if (queryMode === false)
-// 			setQueryMode(true);
-// 			let data = searchData(value);
-// 			setSearchedData(data);
-// 		} else {
-// 			/*	todo:
-// 				we should make this a single function
-// 				and refactor this code. */
-// 			setQueryMode(false);
-// 			setSearchedData([])
-// 		}
-// 	}
-// 	render() {
-// 		return (
-// 			<div>
-// 				<input type="text" onChange={this.search} placeholder="Search notes .."></input>
-// 			</div>
-// 		)
-// 	}
-// }
-
-function SearchBar(props) {
-
-	const search = (e) => {
-		const {setQueryMode, setSearchedData, queryMode, searchData, setConfig} = props;
-		const value = e.target.value.trim();
-		if (value !== "") {
-			// if (queryMode === false)
-			let data = searchData(value);
-			setConfig(true, data)
-			// setQueryMode(true);
-			// setSearchedData(data);
-		} else {
-			/*	todo:
-				we should make this a single function
-				and refactor this code. */
-			// setQueryMode(false);
-			// setSearchedData([])
-			setConfig(false, [])
-		}
-	}
-	return (
-		<div>
-			<input type="text" onChange={search} placeholder="Search notes .."></input>
-		</div>
-	)
-}
-
 function Notes(props) {
 	const list = props.notesData.map( (row, index) => {
-		return <Note data={row} key={index}></Note>
+		return <Note data={row} index={index} key={index} removenotes={props.removenotes}></Note>
 	})
 	return <>{list}</>
 }
@@ -106,11 +52,32 @@ function Note(props) {
 	return (
 		<div>
 			<h3 className="note-title"># {title}
-				<span className="edit-icon" onclick={editView}>
+				<span className="edit-icon" onClick={editView}>
+					<input type="button" value="-" onClick={() => props.removenotes(props.index)}></input>
 					<img alt="edit" src="https://img.icons8.com/android/24/000000/edit.png"/>
 				</span>
 			</h3>
 			<p className="note-description">{note}</p>
+		</div>
+	)
+}
+
+function SearchBar(props) {
+
+	const search = (e) => {
+		const {searchData, setConfig} = props;
+		const value = e.target.value.trim();
+		if (value !== "") {
+			// if (queryMode === false)
+			let data = searchData(value);
+			setConfig(true, data)
+		} else {
+			setConfig(false, [])
+		}
+	}
+	return (
+		<div>
+			<input type="text" onChange={search} placeholder="Search notes .."></input>
 		</div>
 	)
 }

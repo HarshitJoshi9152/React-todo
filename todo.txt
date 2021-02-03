@@ -26,3 +26,21 @@ add a better theme
 unable to preventDefault on from submit
 
 required not working on form
+
+useful links!
+
+add tags support !
+https://codepen.io/ananyaneogi/pen/BgZMJM
+
+
+1. Expand/collapse details
+<details open>
+    <summary>Beauxbatons Academy of Magic</summary>
+    <p>
+      If you like your magic served with a dash of savoir faire, this school is for you. Beauxbatons welcomes a multitude of students of different nationalities, mainly French, but also Spanish, Portuguese, Dutch, Luxembourgian and Belgian.
+    </p>
+  </details>
+
+
+2 popup tag / Dialog box
+https://codepen.io/ananyaneogi/pen/QXMdbb
