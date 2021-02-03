@@ -6,7 +6,7 @@ class Header extends Component {
 	render() {
 		return (
 			<header className="hero">
-				<h1>Reactive Todo list App</h1>
+				<h1> <span class="green">Reactive</span> <span class="other">Notes</span></h1>
 			</header>
 		)
 	}

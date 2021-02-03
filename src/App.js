@@ -26,12 +26,14 @@ class App extends Component {
 
 	// this method should return matching notes
 	searchData = (q) => {
+		console.log('q', q);
 		const matches = this.state.notes.filter( ({title, note}) => {
 			if (title.includes(q) || note.includes(q)) {
 				return true;
 			}
 			return false;
 		});
+		console.log(`${q} matches`, matches)
 		return matches;
 	}
 

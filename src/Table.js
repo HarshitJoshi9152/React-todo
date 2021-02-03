@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import SearchBar from "./SearchBar";
+
+
 class Table extends Component {
 
 	state = {
@@ -7,80 +8,111 @@ class Table extends Component {
 		searchedData: []
 	}
 
-	setQueryMode = (mode) => {
-		console.log(mode)
+	setConfig = (mode, data) => {
+		console.log("mode", mode);
 		this.setState({
-			queryMode: mode,
-			searchedData: this.state.searchedData
+			queryMode:mode,
+			searchedData:data
 		})
-		console.log(this.state.queryMode);
-	}
-
-	setSearchedData = (data) => {
-		this.setState({
-			queryMode: this.state.queryMode,
-			searchedData: data
-		})
+		console.log("stateMode", this.state.queryMode)
 	}
 
 	render() {
 		const { notesData, removenotes, searchData} = this.props;
 		const {searchedData, queryMode} = this.state;
-		let notes = (queryMode) ? searchedData : notesData;
+		const notes = (queryMode) ? searchedData : notesData;
 		return (
 			<div className="content">
 				{/* <Header/> */}
-				<SearchBar setSearchedData={this.setSearchedData} searchData={searchData} setQueryMode={this.setQueryMode} queryMode={queryMode}></SearchBar>
-				<table>
-					{/* not the best way to do this */}
+				<SearchBar setConfig={this.setConfig} setSearchedData={this.setSearchedData} searchData={searchData} setQueryMode={this.setQueryMode} queryMode={queryMode}></SearchBar>
+				{/* <table>
 					<TableHead headings={Object.keys({name:"", job:""})}/>
 					<TableBody
 						notesData={notes}
 						removenotes={removenotes}
 					/>
-				</table>
+				</table> */}
+				<Notes notesData={notes}/>
 			</div>
 		);
 	}
 }
 
-// function Header() {
-// 	return (
-// 		<h2>all tasks</h2>	
-// 	)
+// class SearcshBar extends React.Component{
+// 	search = (e) => {
+// 		const {setQueryMode, setSearchedData, queryMode, searchData} = this.props;
+// 		const value = e.target.value.trim();
+// 		if (value !== "") {
+// 			// if (queryMode === false)
+// 			setQueryMode(true);
+// 			let data = searchData(value);
+// 			setSearchedData(data);
+// 		} else {
+// 			/*	todo:
+// 				we should make this a single function
+// 				and refactor this code. */
+// 			setQueryMode(false);
+// 			setSearchedData([])
+// 		}
+// 	}
+// 	render() {
+// 		return (
+// 			<div>
+// 				<input type="text" onChange={this.search} placeholder="Search notes .."></input>
+// 			</div>
+// 		)
+// 	}
 // }
 
-function TableHead(props) {
+function SearchBar(props) {
+
+	const search = (e) => {
+		const {setQueryMode, setSearchedData, queryMode, searchData, setConfig} = props;
+		const value = e.target.value.trim();
+		if (value !== "") {
+			// if (queryMode === false)
+			let data = searchData(value);
+			setConfig(true, data)
+			// setQueryMode(true);
+			// setSearchedData(data);
+		} else {
+			/*	todo:
+				we should make this a single function
+				and refactor this code. */
+			// setQueryMode(false);
+			// setSearchedData([])
+			setConfig(false, [])
+		}
+	}
 	return (
-		<thead>
-			<tr>
-				{/* {props.headings.map( (head) => <th>{head}</th>)} */}
-				<th>name</th>
-				<th>job</th>
-				<th>Remove</th>
-			</tr>
-		</thead>
-	);
+		<div>
+			<input type="text" onChange={search} placeholder="Search notes .."></input>
+		</div>
+	)
 }
 
-function TableBody(props) {
-	const rows = props.notesData.map((row, index) => {
-		return (
-			<tr key={index}>
-				{/* {
-					Object.values(row).map( itm => <td> {itm} </td> )
-				} */}
-				<td> {row.title} </td>
-				<td title={row.note}> {row.note} </td>
-				<td>
-					<button onClick={() => props.removenotes(index)}>
-						Delete
-					</button>
-				</td>
-			</tr>
-		);
-	});
-	return <tbody> {rows} </tbody>;
+function Notes(props) {
+	const list = props.notesData.map( (row, index) => {
+		return <Note data={row} key={index}></Note>
+	})
+	return <>{list}</>
+}
+
+function Note(props) {
+	const {title, note} = props.data;
+	const editView = (e) => {
+		console.log("i have been clicked ! heehhe");
+	}
+	return (
+		<div>
+			<h3 className="note-title"># {title}
+				<span className="edit-icon" onclick={editView}>
+					<img alt="edit" src="https://img.icons8.com/android/24/000000/edit.png"/>
+				</span>
+			</h3>
+			<p className="note-description">{note}</p>
+		</div>
+	)
 }
 
 export default Table;

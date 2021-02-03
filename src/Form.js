@@ -23,7 +23,7 @@ class Form extends Component {
 	};
 
 	render() {
-		const { title: name, note: job } = this.state;
+		const { title, note } = this.state;
 
 		return (
 			<div className="form">
@@ -31,20 +31,21 @@ class Form extends Component {
 			<form>
 				{/* <label htmlFor="name">Name</label> */}
 				<input
-					placeholder="name"
+					placeholder="title"
 					type="text"
 					name="title"
-					id="name"
-					value={name}
+					id="title"
+					value={title}
 					onChange={this.handleChange}
 				/>
-				{/* <label htmlFor="job">Job</label> */}
+				{/* <label htmlFor="note">Job</label> */}
 				<textarea
-					placeholder="job"
+					placeholder="note"
 					type="text"
 					name="note"
-					id="job"
-					value={job}
+					id="note"
+					size="80"
+					value={note}
 					onChange={this.handleChange}
 				/>
 				<input type="button" onSubmit={this.submitForm} onClick={this.submitForm} value="Add task"/>

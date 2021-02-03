@@ -8,10 +8,18 @@
 }
 
 html, body {
-	background-color:#1e1921;
+	background-color:#fdf6e3;
 	height: 100%;
-	color: white;
+	color: #586e75;
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+.green {
+	color: #2aa198
+}
+
+.other {
+	color: #586e75
 }
 
 /*todo: use this pallet https://coolors.co/ffeaee-ec4e20-0075f2-00f2f2-1c2826  */

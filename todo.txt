@@ -21,6 +21,7 @@ grid-template-columns
 IMPORTANT
 
 i have to find a way to style this thing !!
+add a better theme
 
 unable to preventDefault on from submit
 
