@@ -14,7 +14,7 @@ class Form extends Component {
 
 	handleChange = (event) => {
 		const { name, value } = event.target;
-
+		if (value.trim() === "") return null;
 		this.setState({
 			[name]: value
 		});
@@ -22,7 +22,9 @@ class Form extends Component {
 
 	submitForm = (event) => {
 		event.preventDefault();
-		console.log("submit", event);
+		if (JSON.stringify(this.state) === JSON.stringify(this.initialState)) {
+			return null;
+		}
 		this.props.handleSubmit(this.state);
 		this.setState(this.initialState);
 	};
