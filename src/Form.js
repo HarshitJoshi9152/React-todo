@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import './form.css'
+
+// functional implementation
+// https://pastebin.com/ABRZZaYc
+
 class Form extends Component {
 	initialState = {
 		title: "",
@@ -16,8 +20,9 @@ class Form extends Component {
 		});
 	};
 
-	submitForm = (e) => {
-		e.preventDefault()
+	submitForm = (event) => {
+		event.preventDefault();
+		console.log("submit", event);
 		this.props.handleSubmit(this.state);
 		this.setState(this.initialState);
 	};
@@ -28,7 +33,7 @@ class Form extends Component {
 		return (
 			<div className="form">
 			<FormHeader></FormHeader>
-			<form>
+			<form onSubmit={this.submitForm}>
 				{/* <label htmlFor="name">Name</label> */}
 				<input
 					placeholder="title"
@@ -46,19 +51,18 @@ class Form extends Component {
 					id="note"
 					size="80"
 					value={note}
+					spellCheck="false"
 					onChange={this.handleChange}
 				/>
-				<input type="button" onSubmit={this.submitForm} onClick={this.submitForm} value="Add task"/>
+				<button type="button" onClick={this.submitForm} onSubmitCapture={this.submitForm}> Add Task</button>
 			</form>
 			</div>
 		);
 	}
 }
 
-function FormHeader(prosp) {
-	return (
-		<h2>add a new entry</h2>
-	)
+function FormHeader() {
+	return <h2>add a new entry</h2>;
 }
 
 export default Form;
