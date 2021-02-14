@@ -49,9 +49,17 @@ function Note(props) {
 	const editView = (e) => {
 		console.log("i have been clicked ! heehhe");
 	}
+	const LinkStyles = {
+		textDecoration:"none",
+		color:"inherit",
+		display:"inline"
+	}
 	return (
 		<div>
-			<h3 className="note-title"># {title}
+			<h3 className="note-title">
+				<span>
+					<a href={"#"+title} id={title} title={"#"+title} style={LinkStyles}>#</a> {title}
+				</span>
 				<span className="edit-icon" onClick={editView}>
 					<input type="button" value="-" onClick={() => props.removenotes(props.index)}></input>
 					<img alt="edit" src="https://img.icons8.com/android/24/000000/edit.png"/>

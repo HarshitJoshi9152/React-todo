@@ -44,3 +44,18 @@ https://codepen.io/ananyaneogi/pen/BgZMJM
 
 2 popup tag / Dialog box
 https://codepen.io/ananyaneogi/pen/QXMdbb
+
+
+landing page - OAuth - text-to-voice - voice-to-text + ML
+
+
+ADD BACKEND EXPRESS SERVER AND DATABASE
+
+
+-------------------------------------------------------------------------------------
+web dev
+
+react - scratch/Vanilla development
+designing + css + prototyping, networking etc + design frameworks
+backend
+APIS -- shopify, payments stripe, printify, youtube, comments etc
