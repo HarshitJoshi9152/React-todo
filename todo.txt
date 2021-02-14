@@ -23,8 +23,6 @@ IMPORTANT
 i have to find a way to style this thing !!
 add a better theme
 
-unable to preventDefault on from submit
-
 required not working on form
 
 useful links!
@@ -45,9 +43,16 @@ https://codepen.io/ananyaneogi/pen/BgZMJM
 2 popup tag / Dialog box
 https://codepen.io/ananyaneogi/pen/QXMdbb
 
+3. cleanup the code with hooks and functional components
+https://reactjs.org/docs/hooks-intro.html
 
+4. add routing
+https://reactrouter.com/web/guides/quick-start
+
+---------------------------- FEATURES ----------------------------------------------
 landing page - OAuth - text-to-voice - voice-to-text + ML
 
+use react router anc reactContext API consumer & provider value={state:this.state};
 
 ADD BACKEND EXPRESS SERVER AND DATABASE
 
@@ -56,6 +61,26 @@ ADD BACKEND EXPRESS SERVER AND DATABASE
 web dev
 
 react - scratch/Vanilla development
+	wow : https://www.reactiflux.com/learning
+
+	(what exactly to learn in react)
+	Hooks | functional components
+	styling react components
+	routing
+	fetching data
+	offline support (? does this really relate to react? idk)
+	wwill do more later ...
+
 designing + css + prototyping, networking etc + design frameworks
 backend
 APIS -- shopify, payments stripe, printify, youtube, comments etc
+
+------------------------------------------
+its all about the tools and the workflow
+NO SWEAT
+
+cheat.sh / pull DOCs --example nodejs.org docs
+code snippets
+fast and efficient web searching
+learning resources
+tools automations and commands/aliases --example surge etc
