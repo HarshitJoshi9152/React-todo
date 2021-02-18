@@ -1,40 +1,31 @@
-import React, { Component } from "react";
-class Table extends Component {
+import React, { useState } from "react";
 
-	state = {
+function Table(props) {
+	const [state, setState] = useState({
 		queryMode: false,
 		searchedData: []
-	}
+	});
 
-	setConfig = (mode, data) => {
+	const setConfig = (mode, data) => {
 		console.log("mode", mode);
-		this.setState({
+		setState({
 			queryMode:mode,
 			searchedData:data
 		})
-		console.log("stateMode", this.state.queryMode)
+		console.log("stateMode", state.queryMode)
 	}
 
-	render() {
-		const { notesData, removenotes, searchData} = this.props;
-		// console.log(removenotes)
-		const {searchedData, queryMode} = this.state;
-		const notes = (queryMode) ? searchedData : notesData;
-		return (
-			<div className="content">
-				{/* <Header/> */}
-				<SearchBar setConfig={this.setConfig} setSearchedData={this.setSearchedData} searchData={searchData} setQueryMode={this.setQueryMode} queryMode={queryMode}></SearchBar>
-				{/* <table>
-					<TableHead headings={Object.keys({name:"", job:""})}/>
-					<TableBody
-						notesData={notes}
-						removenotes={removenotes}
-					/>
-				</table> */}
-				<Notes notesData={notes} removenotes={removenotes}/>
-			</div>
-		);
-	}
+	const { notesData, removenotes, searchData} = props;
+	const {searchedData, queryMode} = state;
+
+	const notesToRender = (queryMode) ? searchedData : notesData;
+
+	return (
+		<div className="content">
+			<SearchBar setConfig={setConfig} searchData={searchData} queryMode={queryMode}></SearchBar>
+			<Notes notesData={notesToRender} removenotes={removenotes}/>
+		</div>
+	);
 }
 
 function Notes(props) {

@@ -10,7 +10,16 @@ function getNotes() {
 
 function writeNote(note) {
 	let n = JSON.parse(getNotes());
+	note.id = Date.now();
 	n.push(note);
+	let d = JSON.stringify(n, null , 4);
+	fs.writeFileSync(fileStore, d);
+	return 0;
+}
+
+function removeNote(id) {
+	let n = JSON.parse(getNotes());
+	n = n.filter(note => note.id !== id);
 	let d = JSON.stringify(n, null , 4);
 	fs.writeFileSync(fileStore, d);
 	return 0;
@@ -18,5 +27,9 @@ function writeNote(note) {
 
 module.exports = {
 	getNotes,
-	writeNote
+	writeNote,
+	removeNote
 }
+
+
+// how do i verify if the request data is correct ?

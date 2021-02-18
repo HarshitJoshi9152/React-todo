@@ -1,15 +1,21 @@
-import React, { Component } from "react";
-import "./header.css";
+import React from "react";
 
+function Header(props) {
 
-class Header extends Component {
-	render() {
-		return (
-			<header className="hero">
-				<h1> <span class="green">Reactive</span> <span class="other">Notes</span></h1>
-			</header>
-		)
+	const header = { textAlign: "center" }
+
+	const h1 = {
+		margin: "none",
+		padding: "none",
+		fontSize: "2.8em",
+		fontFamily: '"Droid Serif",Georgia,"Times New Roman",Times,serif'
 	}
+
+	return (
+		<header className="hero" style={header}>
+			<h1 style={h1}> <span class="green">Reactive</span> <span class="other">Notes</span></h1>
+		</header>
+	)
 }
 
 export default Header;

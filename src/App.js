@@ -1,60 +1,62 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import Header from "./Header"
 import Table from "./Table";
 import Form from "./Form";
 import ViewHolder from "./ViewHolder";
 
-class App extends Component {
-	state = {
-		notes: [],
+function App() {
+
+	const [notes, setNotes] = useState([
+		{
+			"title": "Welcome",
+			"note": "Have a nice day ahead !"
+		}
+	]);
+
+	const removenotes = (index) => {
+		setNotes(notes.filter((_, i) => i !== index ));
 	};
 
-	removenotes = (index) => {
-
-		this.setState({
-			notes: this.state.notes.filter((_, i) => {
-				return i !== index;
-			})
-		})
+	const handleSubmit = (newNote) => {
+		setNotes([newNote, ...notes]);
 	};
 
-	handleSubmit = (newNote) => {
-		this.setState({
-			notes: [newNote, ...this.state.notes]
-		});
-	};
-
-	// this method should return matching notes
-	searchData = (q) => {
+	// method should return matching notes
+	const searchData = (q) => {
 		console.log('q', q);
-		const matches = this.state.notes.filter( ({title, note}) => {
-			if (title.includes(q) || note.includes(q)) {
-				return true;
-			}
-			return false;
-		});
+		const matches = notes.filter(
+			({title, note}) => (title.includes(q) || note.includes(q)) ? true : false
+		)
 		console.log(`${q} matches`, matches)
 		return matches;
 	}
-
-	render() {
-		const { notes } = this.state;
 		
-		return (
-			<>
-				<Header />
-				<ViewHolder>
-					<Form handleSubmit={this.handleSubmit} />
-					<Table
-						notesData={notes}
-						removenotes={this.removenotes}
-						searchData={this.searchData}
-					/>
-					{/* <tasks data={tasks} removeTask={removeTask}></tasks> */}
-				</ViewHolder>
-			</>
-		);
-	}
+	return (
+		<BrowserRouter>
+			<Switch>
+				<Route exact path="/" render={ () => {
+					return (
+						<>
+							<Header />
+							<ViewHolder>
+								<Form handleSubmit={handleSubmit} />
+								<Table
+									notesData={notes}
+									removenotes={removenotes}
+									searchData={searchData}
+								/>
+								{/* <tasks data={tasks} removeTask={removeTask}></tasks> */}
+							</ViewHolder>
+						</>
+					)
+				}} />
+
+				<Route path="/" render={()=> <h1>404 Not Found</h1>}></Route>
+			</Switch>
+		</BrowserRouter>
+	);
 }
 
 export default App;
