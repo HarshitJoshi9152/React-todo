@@ -84,3 +84,17 @@ code snippets
 fast and efficient web searching
 learning resources
 tools automations and commands/aliases --example surge etc
+
+
+
+REACT
+
+what is the difference between passing in a function vs object to setState ?
+why should we pass functions as dependencies in useEffect https://youtu.be/j1ZRyw7OtZs?t=1013
+why? =>
+<button onClick={ () => setCount(c => c + 1) }>++</button>
+
+initializer function for useState ?
+https://youtu.be/j1ZRyw7OtZs?t=1130
+
+kinda advanced: how does useState work under the hood ?

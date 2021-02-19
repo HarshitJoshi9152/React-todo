@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Table from "./../Table.js";
+import React from "react";
+// import Table from "./../Table.js";
 
 const NotesPage = (props) => {
 	return <h1>Well played</h1>;

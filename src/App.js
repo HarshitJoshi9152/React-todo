@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import NotesPage from "./notes.js";
+import NotesPage from "./pages/notes.js";
 
 import Header from "./Header";
 import Table from "./Table";
@@ -16,12 +16,31 @@ function App() {
 		}
 	]);
 
+	// loading notes from localStorage on mount
+	React.useEffect(() => {
+		// can also be extraced to a custom hook to show some loading icon !
+		let localNotes;
+		try {
+			localNotes = JSON.parse(localStorage.getItem("notes"));
+		} catch (e) {
+			return null;
+		}
+		setNotes(localNotes);
+	}, []);
+
+	React.useEffect(() => {
+		localStorage.setItem("notes", JSON.stringify(notes));
+	}, [notes]);
+
 	const removenotes = (index) => {
-		setNotes(notes.filter((_, i) => i !== index));
+		const newNotes = notes.filter((_, i) => i !== index);
+		setNotes(newNotes);
 	};
 
 	const handleSubmit = (newNote) => {
-		setNotes([newNote, ...notes]);
+		const newNotes = [newNote, ...notes];
+		setNotes(newNotes);
+		// localStorage.setItem("notes", JSON.stringify(newNotes)); doesnt work here!
 	};
 
 	// method should return matching notes
