@@ -1,11 +1,12 @@
 .container {
-	display:grid;
+	display: grid;
 	grid-template-columns: 2fr 4fr;
-	padding:2vw;
+	padding: 2vw;
+	height: 450px;
 }
 
 .form {
-	margin-right:1.5em;
+	margin-right: 1.5em;
 	position: sticky;
 	background-color: #eee8d5;
 	border-radius: 16px;
@@ -13,7 +14,6 @@
 }
 
 .content {
-	height: 450px;
 	overflow: scroll;
 	/* border: 2px solid #845ec2; */
 	border-radius: 16px;
@@ -21,7 +21,8 @@
 	padding: 14px;
 }
 
-.content > h2, .form > h2 {
+.content > h2,
+.form > h2 {
 	padding: 20px;
 	margin: 20px;
 	text-align: center;
@@ -34,16 +35,16 @@ td {
 }
 
 .content::-webkit-scrollbar {
-    width: 1em;
+	width: 1em;
 }
- 
+
 .content::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
- 
+
 .content::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
+	background-color: darkgrey;
+	outline: 1px solid slategrey;
 }
 
 .note-title {
@@ -54,16 +55,18 @@ td {
 }
 
 .note-description {
-	font-size:1.2em;
+	font-size: 1.2em;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
 	color: #323232;
 	font-weight: 400;
 }
 
-input, textarea {
+input,
+textarea {
 	color: #323232;
 	font-weight: 590;
-	background-color:rgba(255,255,255,0.9);
+	background-color: rgba(255, 255, 255, 0.9);
 }

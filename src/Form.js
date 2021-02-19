@@ -1,72 +1,64 @@
-import React, { useState } from "react";
-import './form.css'
+import React from "react";
+import { useForm } from "./useForm";
+import "./form.css";
 
 // functional implementation
 // https://pastebin.com/ABRZZaYc
 
 function Form(props) {
-
-	const initialState = {
+	// const { title, note } = state;
+	const [{ title, note }, handleChange, clearForm] = useForm({
 		title: "",
 		note: ""
-	};
+	});
 
-	const [state, setState] = useState(initialState);
-
-	const handleChange = (event) => {
-		const { name, value } = event.target;
-		// if (value.trim() === "") return null;
-		let obj = {...state}
-		obj[name] = value
-		setState(obj)
-	};
-	
 	const submitForm = (event) => {
 		event?.preventDefault();
-		if (state.title === "" || state.note === "") {
-			return null;
-		}
-		props.handleSubmit(state);
-		setState(initialState);
+		if ([title, note].includes("")) return null;
+		props.handleSubmit({ title, note });
+		clearForm();
 	};
-	
-	const keyDown = (event) => {
-		// to implement ctrl + Enter to submit form.
-		// else: npm install react-hotkeys-hook
-		if (event.ctrlKey === true && event.key === "Enter") {
-			submitForm()
-			event.target.blur()
-		}
-	}
 
-	const { title, note } = state;
+	const keyDown = ({ ctrlKey, key, target }) => {
+		// ctrl + Enter to submit form.
+		if (ctrlKey === true && key === "Enter") {
+			submitForm();
+			target.blur();
+		}
+	};
+
 	return (
 		<div className="form">
-		<FormHeader></FormHeader>
-		<form onSubmit={submitForm}>
-			{/* <label htmlFor="name">Name</label> */}
-			<input
-				placeholder="title"
-				type="text"
-				name="title"
-				id="title"
-				value={title}
-				onChange={handleChange}
-			/>
-			{/* <label htmlFor="note">Job</label> */}
-			<textarea
-				placeholder="note"
-				type="text"
-				name="note"
-				id="note"
-				size="80"
-				value={note}
-				spellCheck="false"
-				onChange={handleChange}
-				onKeyDown={keyDown}
-			/>
-			<button type="button" onClick={submitForm} onSubmitCapture={submitForm}> Add Task</button>
-		</form>
+			<FormHeader></FormHeader>
+			<form onSubmit={submitForm}>
+				<input
+					placeholder="title"
+					type="text"
+					name="title"
+					id="title"
+					value={title}
+					onChange={handleChange}
+				/>
+				<textarea
+					placeholder="note"
+					type="text"
+					name="note"
+					id="note"
+					size="80"
+					value={note}
+					spellCheck="false"
+					onChange={handleChange}
+					onKeyDown={keyDown}
+				/>
+				<button
+					type="button"
+					onClick={submitForm}
+					onSubmitCapture={submitForm}
+				>
+					{" "}
+					Add Task
+				</button>
+			</form>
 		</div>
 	);
 }
