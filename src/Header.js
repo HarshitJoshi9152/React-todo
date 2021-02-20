@@ -14,8 +14,8 @@ function Header(props) {
 	return (
 		<header className="hero" style={header}>
 			<h1 style={h1}>
-				<span class="green">Reactive</span>{" "}
-				<span class="other">Notes</span>
+				<span className="green">Reactive</span>{" "}
+				<span className="other">Notes</span>
 			</h1>
 			<Link to="/notes">View all notes</Link>
 		</header>

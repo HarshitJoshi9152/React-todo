@@ -49,6 +49,9 @@ https://reactjs.org/docs/hooks-intro.html
 4. add routing
 https://reactrouter.com/web/guides/quick-start
 
+5. add color theme support and better design!
+	use gruvbox ?
+
 ---------------------------- FEATURES ----------------------------------------------
 landing page - OAuth - text-to-voice - voice-to-text + ML
 
@@ -97,4 +100,6 @@ why? =>
 initializer function for useState ?
 https://youtu.be/j1ZRyw7OtZs?t=1130
 
-kinda advanced: how does useState work under the hood ?
+kinda advanced: how does useState work under the hood ?join ben awad discord | KC dodds discord | also how to makes folders in discord ?
+
+

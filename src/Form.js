@@ -12,6 +12,8 @@ function Form(props) {
 		note: ""
 	});
 
+	const ref = React.useRef();
+
 	const submitForm = (event) => {
 		event?.preventDefault();
 		if ([title, note].includes("")) return null;
@@ -24,6 +26,7 @@ function Form(props) {
 		if (ctrlKey === true && key === "Enter") {
 			submitForm();
 			target.blur();
+			ref.current.focus();
 		}
 	};
 
@@ -38,6 +41,7 @@ function Form(props) {
 					id="title"
 					value={title}
 					onChange={handleChange}
+					ref={ref}
 				/>
 				<textarea
 					placeholder="note"
